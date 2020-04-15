@@ -3,7 +3,7 @@ import "./App.css";
 import axios from 'axios';
 import Photo from './components/photo';
 import Title from './components/title';
-import Date from './components/date';
+import DateOne from './components/date';
 import Copyright from './components/copyright';
 import Explanation from './components/explanation';
 
@@ -35,7 +35,7 @@ function App() {
         app! Have fun <span role="img" aria-label='go!'>🚀</span>!
       </p>
       
-      <Date date={data.date} />
+      <DateOne date={data.date} />
       <Photo image={data.url} />
       <Title title={data.title} />
       <Copyright copyright={data.copyright} />
