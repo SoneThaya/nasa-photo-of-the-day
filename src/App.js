@@ -7,6 +7,7 @@ import Title from './components/title';
 import DateOne from './components/date';
 import Copyright from './components/copyright';
 import Explanation from './components/explanation';
+import styled from 'styled-components'
 
 const baseURL = 'https://api.nasa.gov'
 const api_key = 'kfsAd7oZSGgkX8uXhUr3RI6s8QoO27sEFTpxWZus'
@@ -41,6 +42,31 @@ function App() {
       })
   }, [photoDate])
 
+  const InputButton = styled.input`
+    
+    background: ${props => props.primary ? "palevioletred" : "white"};
+    color: ${props => props.primary ? "white" : "palevioletred"};
+
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+
+    &:hover {
+      background: ${props => props.primary ? "white" : "palevioletred"};
+      color: ${props => props.primary ? "palevioletred" : "white"};
+    }
+  `
+
+  const InputField = styled.input`
+
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+
+  `
+
   return (
     <div className="App">
       <p>
@@ -50,8 +76,8 @@ function App() {
       
       <DateOne date={data.date} />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input ref={register} name="date" placeholder="YYYY-MM-DD" />
-        <input type='submit' />
+        <InputField ref={register} name="date" placeholder="YYYY-MM-DD" />
+        <InputButton BgColor='red' type='submit' scream />
       </form>
       <Photo image={data.url} alt={data.media_type} />
       <Title title={data.title} />
